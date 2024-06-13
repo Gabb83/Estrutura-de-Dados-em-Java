@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Vetor {
     private String[] elementos;
     private int tamanho;
@@ -7,6 +5,22 @@ public class Vetor {
     public Vetor(int capacidade){
         this.elementos = new String[capacidade];
         this.tamanho = 0;
+    }
+    
+    public boolean listaVazia(){
+        System.out.print("a lista esta vazia: ");
+        if(this.tamanho != 0){
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean listaCheia(){
+        System.out.print("a lista esta cheia: ");
+        if(this.tamanho == this.elementos.length){
+            return true;
+        }
+        return false;
     }
 
     public boolean adiciona(String elemento){
@@ -36,7 +50,6 @@ public class Vetor {
         if(!(posicao >= 0 && posicao < tamanho)){
             throw new IllegalArgumentException("posicao invalida");
         }
-
         return this.elementos[posicao];
     }
 
@@ -45,20 +58,19 @@ public class Vetor {
             if(this.elementos[i].equals(elemento)){
                 return i;
             }
-            return -1;
         }
+        return -1;
     }
 
     public int getTamanho(){
+        System.out.print("elementos na lista: ");
         return this.tamanho;
     }
 
     @Override
     public String toString(){
-
         StringBuilder s = new StringBuilder();
         s.append("[");
-
 
         for(int i = 0; i < this.tamanho-1; i++){
             s.append(this.elementos[i]);
