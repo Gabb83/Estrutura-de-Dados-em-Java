@@ -2,11 +2,11 @@ import java.util.Scanner;
 
 public class Main {
     private static Scanner input = new Scanner(System.in);
-    public static Vetor vetor = new Vetor(5);
+    public static Vetor vetor = new Vetor(10);
     
     public static void main(String[] args){
-        vetor.adiciona("elemento 1");
-        vetor.adiciona("elemento 2");
+        vetor.adiciona("Joao");
+        vetor.adiciona("Luis");
         
         boolean verificaLoop = true;
         while(verificaLoop){
@@ -38,22 +38,24 @@ public class Main {
         System.out.println("|    5 - SAIR              |");
         System.out.println("++++++++++++++++++++++++++++");
         
-        int indiceMenu = Integer.parseInt(input.nextLine());
+        int indiceMenu = Integer.parseInt(input.next());
+        System.out.println();
         
         switch(indiceMenu){
             case 1:{
-                menuAdiciona();
+                menuAdicionar();
                 
                 break;
             }
             case 2:{
+                menuRemover();
+                menuExibir();
                 
                 break;
             }
             case 3:{
-                System.out.println("\n" + vetor.getTamanho());
-                System.out.println("Exibicao da lista: ");
-                System.out.println(vetor.toString());
+                vetor.getCapacidadeLista();
+                menuExibir();
                 
                 break;
             }
@@ -75,7 +77,7 @@ public class Main {
         }
     }
     
-    private static void menuAdiciona(){
+    private static void menuAdicionar(){
         System.out.print("Digite o nome em que deseja guardar: ");
         String nome = input.next();
         System.out.print("Digite a posicao em que deseja adicionar: ");
@@ -84,7 +86,21 @@ public class Main {
         vetor.adiciona(posicao, nome);
     }
     
+    private static void menuRemover(){
+        System.out.print("Digite a posicao do vetor que deseja remover: ");
+        int pos = Integer.parseInt(input.next());
+        
+        vetor.remove(pos);
+    }
+    
+    private static void menuExibir(){
+        vetor.getTamanho();
+        System.out.println("\nExibicao da lista: ");
+        System.out.println(vetor.toString());
+    }
+    
     private static void verificaLista(){
+        System.out.println();
         System.out.println(vetor.listaVazia());
         System.out.println(vetor.listaCheia() + "\n");
     }

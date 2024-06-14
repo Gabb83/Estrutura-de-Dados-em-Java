@@ -9,7 +9,7 @@ public class Vetor {
     
     public boolean listaVazia(){
         System.out.print("a lista esta vazia: ");
-        if(this.tamanho != 0){
+        if(this.tamanho == 0){
             return true;
         }
         return false;
@@ -46,6 +46,16 @@ public class Vetor {
 		return true;
 	}
 
+	public void remove(int posicao){
+        if (!(posicao >= 0 && posicao < tamanho))
+			throw new IllegalArgumentException("Posicao invalida");
+		
+		for(int i = posicao; i < this.tamanho-1; i++){
+		    this.elementos[i] = this.elementos[i+1];
+		}
+		this.tamanho--;
+	}
+
     public String busca(int posicao){
         if(!(posicao >= 0 && posicao < tamanho)){
             throw new IllegalArgumentException("posicao invalida");
@@ -62,9 +72,12 @@ public class Vetor {
         return -1;
     }
 
-    public int getTamanho(){
-        System.out.print("elementos na lista: ");
-        return this.tamanho;
+    public void getTamanho(){
+        System.out.print("elementos na lista: " + tamanho);
+    }
+    
+    public void getCapacidadeLista(){
+        System.out.print("capacidade da lista: " +  elementos.length + "\n");
     }
 
     @Override
