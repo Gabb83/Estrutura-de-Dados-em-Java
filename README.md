@@ -5,7 +5,9 @@
 
 <h2>Linha do Tempo</h2>
 
-+ Lista Sequencial - em desenvolvimento
++ Lista Sequencial - ■ ■ ■ ■ ■ 100% (terminado)
 + Lista Encadeada - não começado
 + Pilhas - não começado
 + Filas - não começado
+
+<!--□ ■--!>
