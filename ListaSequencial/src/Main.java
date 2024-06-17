@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
-public class Main {
-
+class Main {
+        
     //instancia os objetos scanner e vetor
     private static Scanner input = new Scanner(System.in);
     public static Vetor vetor = new Vetor(10);
     
     public static void main(String[] args){
-
+        
         //add itens inicialmente pelo metodo construtor
         vetor.adiciona("Joao");
         vetor.adiciona("Luis");
@@ -34,16 +34,16 @@ public class Main {
     }
     
     private static void menuPrincipal(){
-        System.out.println("++++++++++++++++++++++++++++");
+        System.out.println("+--------------------------+");
         System.out.println("|       MENU PRINCIPAL     |");
-        System.out.println("++++++++++++++++++++++++++++");
+        System.out.println("+--------------------------+");
         System.out.println("|    1 - ADICIONAR         |");
         System.out.println("|    2 - REMOVER           |");
         System.out.println("|    3 - EXIBIR            |");
         System.out.println("|    4 - ESVAZIAR          |");
         System.out.println("|    5 - BUSCAR            |");
         System.out.println("|    6 - SAIR              |");
-        System.out.println("++++++++++++++++++++++++++++");
+        System.out.println("+--------------------------+");
         
         int indiceMenu = Integer.parseInt(input.next());
         System.out.println();
@@ -71,18 +71,19 @@ public class Main {
             }
             case 4:{
                 //responsavel por esvaziar a lista
+                menuEsvaziar();
                 
                 break;
             }
             case 5:{
                 //responsavel por buscar elementos
-                
+                menuBuscar();
                 break;
             }
             case 6:{
                 //faz com que o programa encerre sem passar pelo loop
                 finalizaSistema();
-
+                
                 break;
             }
             default:{
@@ -120,6 +121,20 @@ public class Main {
         vetor.getTamanho();
         System.out.println("\nExibicao da lista: ");
         System.out.println(vetor.toString());
+    }
+    
+    //busca elementos
+    private static void menuBuscar(){
+        System.out.print("Digite a posicao que deseja buscar: ");
+        int posicao = Integer.parseInt(input.next());
+        
+        //printa o elemento exibido
+        System.out.println(vetor.busca(posicao));
+    }
+    
+    //esvazia completamente a lista
+    private static void menuEsvaziar(){
+        vetor.esvaziarLista();
     }
     
     //metodo responsavel por verificar se a lista esta cheia/vazia

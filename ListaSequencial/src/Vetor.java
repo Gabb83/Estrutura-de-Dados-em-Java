@@ -1,4 +1,4 @@
-public class Vetor {
+class Vetor {
     private String[] elementos; //guarda elementos na lista
     private int tamanho; //guarda tamanho da lista
     
@@ -43,12 +43,12 @@ public class Vetor {
         //verifica se a posicao e valida ou nao
 		if (!(posicao >= 0 && posicao < tamanho))
 			throw new IllegalArgumentException("Posicao invalida");
-    
+        
 		//percorre o array
 		for(int i=this.tamanho-1; i>=posicao; i--){
 			this.elementos[i+1] = this.elementos[i];
 		}
-
+        
         //add o elemento na posicao desejada
 		this.elementos[posicao] = elemento;
         //incrementa +1 no tamanho da lista
@@ -56,7 +56,8 @@ public class Vetor {
 		
 		return true;
 	}
-
+    
+    //remove elementos na lista pela posicao
 	public void remove(int posicao){
         //verifica se a posicao e valida ou nao
         if (!(posicao >= 0 && posicao < tamanho))
@@ -88,6 +89,19 @@ public class Vetor {
         }
         return -1;
     }
+    
+    public void esvaziarLista(){
+        for(int i = 0; i < tamanho; i++){
+            this.elementos[i] = null;
+        }
+        
+        this.tamanho = 0;
+        
+        //se tudo ocorrer bem diz que a lista foi esvaziada
+        if(this.tamanho == 0){
+            System.out.println("Lista esvaziada");
+        }
+    }
 
     //retorna quanto elementos estao inseridos na lista
     public void getTamanho(){
@@ -103,17 +117,18 @@ public class Vetor {
     @Override
     public String toString(){
         StringBuilder s = new StringBuilder();
-        s.append("[");
-
+        
         for(int i = 0; i < this.tamanho-1; i++){
+            s.append(i + " | ");
             s.append(this.elementos[i]);
-            s.append(", ");
+            s.append("\n");
         }
         if(this.tamanho > 0){
+            int i = --tamanho;
+            s.append(i + " | ");
+            tamanho++;
             s.append(this.elementos[this.tamanho-1]);
         }
-
-        s.append("]");
 
         return s.toString();
     }
