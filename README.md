@@ -5,9 +5,8 @@
 
 <h2>Linha do Tempo</h2>
 
-+ Lista Sequencial (Arrays) - terminado
-+ Pilhas (Stakcs) - terminado
-+ Lista Encadeada - não começado
-+ Filas - não começado
++ Lista Sequencial (Array) - terminado
++ Pilhas (Stack) - terminado
++ Filas (Queue) - não começado
 
 <!--□ ■--!>
