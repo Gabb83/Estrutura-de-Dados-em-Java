@@ -1,19 +1,50 @@
-class Pilha {
-    static No no = new No();
-    
-    protected boolean estaCheia(){
-        return no.getPosicao() == no.getNomes().length-1;
+import java.util.Stack;
+
+public class Pilha {
+    private Stack<String> pilha;
+
+    public Pilha() {
+        pilha = new Stack<String>();
     }
-    
-    protected boolean estaVazia(){
-        return no.getPosicao() == -1;
+
+    public void empilhar(String nome) {
+        pilha.push(nome);
     }
-    
-    protected int capacidadePilha(){
-        return no.getNomes().length;
+
+    public String desempilhar() {
+        if (!pilha.isEmpty()) {
+        return pilha.pop();
+        } else {
+        return "A pilha está vazia!";
+        }
     }
-    
-    protected int tamanhoPilha(){
-        return no.getPosicao()+1;
+
+    public String topo() {
+        if (!pilha.isEmpty()) {
+            return pilha.peek();
+        } else {
+            return "A pilha está vazia!";
+        }
+    }
+
+    public String verificaPilha(){
+        if(pilha.isEmpty()){
+        return "vazia";
+        }
+
+        return "cheia";
+    }
+
+    public boolean buscar(String nome) {
+        return pilha.contains(nome);
+    }
+
+    public int tamanho() {
+        return pilha.size();
+    }
+
+    @Override
+    public String toString() {
+        return pilha.toString();
     }
 }
