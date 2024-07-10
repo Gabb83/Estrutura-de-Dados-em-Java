@@ -35,6 +35,10 @@ public class Pilha {
         return "cheia";
     }
 
+    public boolean buscar(String nome) {
+        return pilha.contains(nome);
+    }
+
     public int tamanho() {
         return pilha.size();
     }
